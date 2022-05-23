@@ -67,6 +67,7 @@ function setData(cardTitle, activeFrame) {
 
   let statics = document.createElement("div");
   statics.className = "statics";
+
   // Set info
 
   let info = document.createElement("div");
@@ -99,6 +100,7 @@ function setData(cardTitle, activeFrame) {
 
   let ellipsis = document.createElement("img");
   ellipsis.src = "./images/icon-ellipsis.svg";
+  ellipsis.alt = "ellipsis";
   statics.appendChild(ellipsis);
 
   card.appendChild(statics);
