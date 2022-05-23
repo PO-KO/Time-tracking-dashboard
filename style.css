@@ -10,7 +10,7 @@
   /* ### Primary */
 
   --blue: hsl(246, 80%, 60%);
-  --light-red: hsl(15, 100%, 70%);
+  --light-orange: hsl(15, 100%, 70%);
   --soft-blue: hsl(195, 74%, 62%);
   --light-red: hsl(348, 100%, 68%);
   --lime-green: hsl(145, 58%, 55%);
@@ -26,7 +26,8 @@
 
   --card-title: 18px;
 
-  --box-padding: 21px;
+  --box-padding: 26px;
+  --border-radius: 12px;
 }
 
 body {
@@ -41,30 +42,51 @@ body {
 
 .report-container {
   max-width: 1100px;
+  width: 1000px;
+  padding: 20px;
 }
 
 .report-container .report {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
 .report-container .report section {
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
   overflow: hidden;
 }
 
 .report .user {
-  grid-row: span 2;
+  /*grid-row: span 2;
+  */
   display: flex;
   flex-direction: column;
   background-color: var(--dark-blue);
 }
 
+@media (min-width: 462px) {
+  .report .user {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 912px) {
+  .report .user {
+    grid-row: span 2;
+    grid-column: span 1;
+  }
+}
+
+/* @media (max-width: 899px) {
+  .report .user {
+    grid-row: span 3;
+  }
+} */
 .report .avatar {
   width: 60px;
   height: 60px;
@@ -85,7 +107,11 @@ body {
   background-color: var(--blue);
   padding: var(--box-padding);
   flex: 1;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
 }
 
 .report .user .user-info p {
@@ -103,6 +129,125 @@ body {
   padding: var(--box-padding);
 }
 
-.report .user .control-flow p:not(:last-child) {
-  padding-bottom: var(--box-padding);
+.report .user .control-flow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+@media (min-width: 900px) {
+  .report .user .control-flow {
+    display: block;
+  }
+}
+
+.report .user .control-flow p {
+  cursor: pointer;
+}
+
+.report .user .control-flow p:nth-child(2) {
+  margin-left: 19px;
+}
+
+.report .user .control-flow p.active {
+  color: var(--desaturated-blue);
+}
+
+@media (min-width: 900px) {
+  .report .user .control-flow p:not(:last-child) {
+    padding-bottom: var(--box-padding);
+    margin: 0;
+  }
+}
+
+/* start cards section */
+
+.report .card {
+  position: relative;
+}
+
+.report .card .icon-holder {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.report .card .icon-holder img {
+  display: block;
+  margin: 6px 14px 0 auto;
+}
+
+.report .card.work {
+  background-color: var(--light-orange);
+}
+.report .card.play {
+  background-color: var(--soft-blue);
+}
+.report .card.study {
+  background-color: var(--light-red);
+}
+.report .card.exercise {
+  background-color: var(--lime-green);
+}
+.report .card.social {
+  background-color: var(--violet);
+}
+.report .card.self-care {
+  background-color: var(--soft-orange);
+}
+.report .card .statics {
+  background-color: var(--dark-blue);
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
+  height: 100%;
+  margin-top: -8px;
+  position: relative;
+  padding: var(--box-padding);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.report .card:hover .statics {
+  background-color: hsl(235, 45%, 30%);
+}
+
+.report .card .statics h5 {
+  font-size: var(--card-title);
+  font-weight: 500;
+  margin-bottom: 26px;
+}
+
+.report .card .statics .current-time {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.report .card .statics .last-time {
+  font-size: 0.8rem;
+  color: var(--pale-blue);
+}
+
+.report .card .statics p {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.report .card .statics img {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+/* end cards section */
