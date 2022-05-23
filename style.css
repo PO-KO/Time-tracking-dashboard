@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* ### Primary */
+
+  --blue: hsl(246, 80%, 60%);
+  --light-red: hsl(15, 100%, 70%);
+  --soft-blue: hsl(195, 74%, 62%);
+  --light-red: hsl(348, 100%, 68%);
+  --lime-green: hsl(145, 58%, 55%);
+  --violet: hsl(264, 64%, 52%);
+  --soft-orange: hsl(43, 84%, 65%);
+
+  /* ### Neutral */
+
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+
+  --card-title: 18px;
+
+  --box-padding: 21px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: var(--very-dark-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+
+.report-container {
+  max-width: 1100px;
+}
+
+.report-container .report {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.report-container .report section {
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  overflow: hidden;
+}
+
+.report .user {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+}
+
+.report .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 2px solid white;
+  margin-bottom: 26px;
+}
+
+.report .avatar img {
+  max-width: 100%;
+}
+
+.report .user .user-info {
+  background-color: var(--blue);
+  padding: var(--box-padding);
+  flex: 1;
+  border-radius: 12px;
+}
+
+.report .user .user-info p {
+  font-size: 0.8rem;
+  color: var(--pale-blue);
+  margin-bottom: 2px;
+}
+
+.report .user .user-info .username {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.report .user .control-flow {
+  padding: var(--box-padding);
+}
+
+.report .user .control-flow p:not(:last-child) {
+  padding-bottom: var(--box-padding);
+}
