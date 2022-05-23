@@ -114,15 +114,39 @@ body {
   -o-border-radius: var(--border-radius);
 }
 
+@media (max-width: 463px) {
+  .report .user .user-info {
+    display: grid;
+    grid-template-columns: 80px auto;
+  }
+  .report .avatar {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+}
+
 .report .user .user-info p {
   font-size: 0.8rem;
   color: var(--pale-blue);
   margin-bottom: 2px;
 }
 
+@media (max-width: 463px) {
+  .report .user .user-info p {
+    display: flex;
+    align-items: end;
+  }
+}
+
 .report .user .user-info .username {
   font-size: 2rem;
   font-weight: 300;
+}
+
+@media (max-width: 463px) {
+  .report .user .user-info .username {
+    font-size: 1.5rem;
+  }
 }
 
 .report .user .control-flow {
@@ -218,6 +242,7 @@ body {
 
 .report .card:hover .statics {
   background-color: hsl(235, 45%, 30%);
+  position: relative;
 }
 
 .report .card .statics h5 {
@@ -232,9 +257,23 @@ body {
   margin-bottom: 5px;
 }
 
-.report .card .statics .last-time {
+/* .report .card .statics .last-time {
   font-size: 0.8rem;
   color: var(--pale-blue);
+} */
+
+.report .card .statics .last-time {
+  position: absolute;
+  right: var(--box-padding);
+  bottom: 90px;
+  font-size: 0.8rem;
+  color: var(--pale-blue);
+}
+
+@media (min-width: 464px) {
+  .report .card .statics .last-time {
+    position: static;
+  }
 }
 
 .report .card .statics p {
